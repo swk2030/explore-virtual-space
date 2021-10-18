@@ -1,4 +1,7 @@
-This is a demo version and may contain bugs. Light field data is required to run this program, but it is not included here. We will provide it ASAP.
+This is a demo version and may contain bugs. Light field data is required to run this program, but it is 
+not included here. We will provide it ASAP.
+
+Also, you can watch the demo video through the following url: : https://www.youtube.com/watch?v=lrIsEJbiGNg
 
 This program was written in the MSVC v142 environment.
 

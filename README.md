@@ -1,4 +1,8 @@
-This repository contains the actual implementation described in paper, "Data Orchestration for Accelerating GPU-based Light Field Rendering Aiming at a Wide Virtual Space", published in IEEE Trans. Circuits Syst. Video Technol.
+This repository contains the actual implementation described in paper -
+
+S.Lee, H.Jung, and C.E.Rhee, "Data Orchestration for Accelerating GPU-based Light Field Rendering Aiming at a Wide Virtual Space", IEEE Trans. Circuits Syst. Video Technol., Oct. 2021.
+
+----
 
 This is a demo version and may contain bugs. Light field data is required to run this program, but it is 
 not included here. We will provide it ASAP.

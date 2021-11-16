@@ -9,7 +9,7 @@ not included here. We will provide it ASAP.
 
 Also, you can watch the demo video through the following url: : https://www.youtube.com/watch?v=lrIsEJbiGNg
 
-This program was written in the MSVC v142 environment.
+Project Environment : C++ 17, MSVC v142.
 
 Dependencies : CUDA 11.2, GLEW, freeglut
 

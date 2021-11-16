@@ -1,4 +1,4 @@
-This repository contains the source codes of the actual implementation described in the paper,
+This repository contains source codes of the actual implementation described in the paper,
 
 S.Lee, H.Jung, and C.E.Rhee, "Data Orchestration for Accelerating GPU-based Light Field Rendering Aiming at a Wide Virtual Space", *IEEE Trans. Circuits Syst. Video Technol.*, Oct. 2021.
 

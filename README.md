@@ -1,4 +1,4 @@
-This repository contains the actual implementation described in the paper,
+This repository contains the source codes of the actual implementation described in the paper,
 
 S.Lee, H.Jung, and C.E.Rhee, "Data Orchestration for Accelerating GPU-based Light Field Rendering Aiming at a Wide Virtual Space", *IEEE Trans. Circuits Syst. Video Technol.*, Oct. 2021.
 
@@ -15,7 +15,7 @@ Dependencies : CUDA 11.2, GLEW, freeglut
 
 -----
 
-**3DLFR_GPU**
+**expore-virtual-space**
 
 - **README.md** : This file
 

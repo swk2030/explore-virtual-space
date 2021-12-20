@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{9905ec0c-8343-4e0e-a6ac-9f177d4aced1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header">
+      <UniqueIdentifier>{8f7b791e-c6bf-4b2d-94c7-202391d10c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="driver">
+      <UniqueIdentifier>{456f48b7-75f0-4eb1-8660-09b9124cad9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec">
+      <UniqueIdentifier>{cd1f93cd-1d50-44b8-9121-5bb3fdf187f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Device_Memory_Manager.cu">
+      <Filter>source</Filter>
+    </None>
+    <None Include="LF_Renderer.cu">
+      <Filter>source</Filter>
+    </None>
+    <None Include="LF_Utils.cu">
+      <Filter>source</Filter>
+    </None>
+    <None Include="Device_Memory_Manager.cuh">
+      <Filter>header</Filter>
+    </None>
+    <None Include="LF_Renderer.cuh">
+      <Filter>header</Filter>
+    </None>
+    <None Include="LF_Utils.cuh">
+      <Filter>header</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LFU_Window.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="LRU_Cache.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>driver</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="enums.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="LFU_Window.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="LRU_Cache.h">
+      <Filter>header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

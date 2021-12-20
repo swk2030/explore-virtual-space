@@ -3,10 +3,12 @@
 // Properties->CUDA C/C++->Common->generate relocatable device code=Yes
 
 #include "enums.h"
-
-#include "cuda_runtime.h"
-#include "cuda.h"
-#include "device_launch_parameters.h"
+#include <cuda.h>
+#include <cuda_runtime.h>
+#include <device_launch_parameters.h>
+//#include "cuda_runtime.h"
+//#include "cuda.h"
+//#include "device_launch_parameters.h"
 
 #include <iostream>
 #include <string>

@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\NvDec\NvCodec;.\NvDec\src;.\NvDec\External\FFmpeg\include;C:\Users\SYD-LAPTOP\Documents\GitHub\Explore-Virtual-Space\explore-virtual-space\LF_Streaming\LF_Streaming;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\include;C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\NvDec\NvCodec;.\NvDec\src;C:\Users\SYD-LAPTOP\Documents\GitHub\Explore-Virtual-Space\explore-virtual-space\LF_Streaming\LF_Streaming;.\NvDec\External\FFmpeg\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\include;C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -175,22 +175,31 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Device_Memory_Manager.cu" />
-    <None Include="Device_Memory_Manager.cuh" />
-    <None Include="LF_Renderer.cu" />
-    <None Include="LF_Renderer.cuh" />
-    <None Include="LF_Utils.cu" />
-    <None Include="LF_Utils.cuh" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="LFU_Window.cpp" />
     <ClCompile Include="LRU_Cache.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NvDec\NvCodec\NvDecoder\NvDecoder.cpp" />
+    <ClCompile Include="NvDec\src\Conversion.cpp" />
+    <ClCompile Include="NvDec\src\Nvdec.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Device_Memory_Manager.cuh" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="LFU_Window.h" />
+    <ClInclude Include="LF_Renderer.cuh" />
+    <ClInclude Include="LF_Utils.cuh" />
     <ClInclude Include="LRU_Cache.h" />
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\cuviddec.h" />
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\nvcuvid.h" />
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\NvDecoder.h" />
+    <ClInclude Include="NvDec\src\Conversion.h" />
+    <ClInclude Include="NvDec\src\Device.h" />
+    <ClInclude Include="NvDec\src\NvDec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="Device_Memory_Manager.cu" />
+    <CudaCompile Include="LF_Renderer.cu" />
+    <CudaCompile Include="LF_Utils.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,4 @@
-#ifndef DEVICE_MEMORY_MANAGER_H_
-#define DEVICE_MEMORY_MANAGER_H_
+#pragma once
 #include "LF_Utils.cuh"
 
 class DeviceMemoryManager
@@ -19,5 +18,3 @@ private:
 	int last_access_number;
 	std::vector<size_t> access_number_set;
 };
-
-#endif

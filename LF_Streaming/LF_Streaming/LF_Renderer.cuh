@@ -1,8 +1,8 @@
 #ifndef LF_RENDERER_H_
 #define LF_RENDERER_H_
 
-#include "LRU_Cache.h"
 #include "LFU_Window.h"
+#include "LRU_Cache.h"
 #include <thread> // std::thread
 
 __device__ int dev_find_pixel_location(int img, int w, int h, int width, int height, int slice_width);

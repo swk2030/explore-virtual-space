@@ -13,26 +13,12 @@
     <Filter Include="NvCodec">
       <UniqueIdentifier>{cd1f93cd-1d50-44b8-9121-5bb3fdf187f1}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Device_Memory_Manager.cu">
-      <Filter>source</Filter>
-    </None>
-    <None Include="LF_Renderer.cu">
-      <Filter>source</Filter>
-    </None>
-    <None Include="LF_Utils.cu">
-      <Filter>source</Filter>
-    </None>
-    <None Include="Device_Memory_Manager.cuh">
-      <Filter>header</Filter>
-    </None>
-    <None Include="LF_Renderer.cuh">
-      <Filter>header</Filter>
-    </None>
-    <None Include="LF_Utils.cuh">
-      <Filter>header</Filter>
-    </None>
+    <Filter Include="NvCodec\NvDec">
+      <UniqueIdentifier>{f391adfc-8e73-409f-8741-b6fa1d14d0d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec\src">
+      <UniqueIdentifier>{5782a277-0f82-4024-a821-a9f953d9a559}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LFU_Window.cpp">
@@ -43,6 +29,15 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>driver</Filter>
+    </ClCompile>
+    <ClCompile Include="NvDec\NvCodec\NvDecoder\NvDecoder.cpp">
+      <Filter>NvCodec\NvDec</Filter>
+    </ClCompile>
+    <ClCompile Include="NvDec\src\Conversion.cpp">
+      <Filter>NvCodec\src</Filter>
+    </ClCompile>
+    <ClCompile Include="NvDec\src\Nvdec.cpp">
+      <Filter>NvCodec\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +50,31 @@
     <ClInclude Include="LRU_Cache.h">
       <Filter>header</Filter>
     </ClInclude>
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\cuviddec.h">
+      <Filter>NvCodec\NvDec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\nvcuvid.h">
+      <Filter>NvCodec\NvDec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvDec\NvCodec\NvDecoder\NvDecoder.h">
+      <Filter>NvCodec\NvDec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvDec\src\Conversion.h">
+      <Filter>NvCodec\src</Filter>
+    </ClInclude>
+    <ClInclude Include="NvDec\src\Device.h">
+      <Filter>NvCodec\src</Filter>
+    </ClInclude>
+    <ClInclude Include="NvDec\src\NvDec.h">
+      <Filter>NvCodec\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Device_Memory_Manager.cuh" />
+    <ClInclude Include="LF_Renderer.cuh" />
+    <ClInclude Include="LF_Utils.cuh" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="Device_Memory_Manager.cu" />
+    <CudaCompile Include="LF_Renderer.cu" />
+    <CudaCompile Include="LF_Utils.cu" />
   </ItemGroup>
 </Project>

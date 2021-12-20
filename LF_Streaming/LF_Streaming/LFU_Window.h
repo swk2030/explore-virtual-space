@@ -6,6 +6,13 @@
 
 #define LFU_WIDTH 100
 
+#define DEBUG1220 1
+
+#if DEBUG1220
+#include "VideoStream.h"
+#endif // DEBUG1220
+
+
 struct Interlaced_LF {
 	int LF_number;
 	ROW_COL type;

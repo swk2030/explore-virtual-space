@@ -610,35 +610,72 @@ int LFU_Window::read_LF(Interlaced_LF* LF, std::string filename, const INTERLACE
 
 	filename = LF_prefix + filename;
 	if (field == ODD) {
-		filename += "_odd.bgr";
+#if DEBUG1220
+        filename += "_odd.mp4";
+#else
+        filename += "_odd.bgr";
+#endif // DEBUG1220
+
 		buf = LF->odd_field;
 		progress = &LF->read_progress_odd;
 	}
 	else {
-		filename += "_even.bgr";
+#if DEBUG1220
+        filename += "_even.mp4";
+#else
+        filename += "_even.bgr";
+#endif // DEBUG1220
 		buf = LF->even_field;
 		progress = &LF->read_progress_even;
 	}
+#if DEBUG1220
 
-	FILE* fp = fopen(filename.c_str(), "rb");
-	if (fp == nullptr) {
-		printf("open failed, %s\n", filename.c_str());
-		exit(1);
-	}
+#else
+    FILE* fp = fopen(filename.c_str(), "rb");
+    if (fp == nullptr) {
+        printf("open failed, %s\n", filename.c_str());
+        exit(1);
+    }
+#endif // DEBUG1220
+
 
 	const size_t num_chunk = 50;
 	const size_t chunk_size = this->interlaced_LF_size / num_chunk;
 	size_t next_chunk_begin = *progress;
-	for (int i = 0; i < num_chunk; i++) {
-		if (curLFUID != getLFUID(curPosX, curPosY)) {
-			*state_disk_read_thread = DISK_READ_THREAD_CENTER_LFU_READING;
-			printf("LF read break\n");
-			return -1; // Interrupt
-		}
-		*progress += fread(buf + next_chunk_begin, 1, sizeof(uint8_t) * chunk_size, fp);
-		next_chunk_begin += chunk_size;
-	}
-	fclose(fp);
+#if DEBUG1220
+    int iGpu = 0;
+    ck(cuInit(0));
+    int nGpu = 0;
+    ck(cuDeviceGetCount(&nGpu));
+
+    if (iGpu < 0 || iGpu >= nGpu) {
+        std::ostringstream err;
+        err << "GPU ordinal out of range. Should be within [" << 0 << ", " << nGpu - 1 << "]" << std::endl;
+        throw std::invalid_argument(err.str());
+    }
+
+    CUdevice cuDevice = 0;
+    ck(cuDeviceGet(&cuDevice, iGpu));
+    char szDeviceName[80];
+    ck(cuDeviceGetName(szDeviceName, sizeof(szDeviceName), cuDevice));
+    std::cout << "GPU in use: " << szDeviceName << std::endl;
+    CUcontext cuContext = NULL;
+    ck(cuCtxCreate(&cuContext, 0, cuDevice));
+    readMp4(cuContext, filename, buf, chunk_size, num_chunk);
+#else
+    for (int i = 0; i < num_chunk; i++) {
+        if (curLFUID != getLFUID(curPosX, curPosY)) {
+            *state_disk_read_thread = DISK_READ_THREAD_CENTER_LFU_READING;
+            printf("LF read break\n");
+            return -1; // Interrupt
+        }
+        *progress += fread(buf + next_chunk_begin, 1, sizeof(uint8_t) * chunk_size, fp);
+        next_chunk_begin += chunk_size;
+}
+    fclose(fp);
+#endif // DEBUG1220
+
+	
 
 	return 0;
 }

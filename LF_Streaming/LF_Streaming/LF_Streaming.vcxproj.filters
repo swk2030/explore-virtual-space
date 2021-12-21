@@ -13,11 +13,11 @@
     <Filter Include="NvCodec">
       <UniqueIdentifier>{cd1f93cd-1d50-44b8-9121-5bb3fdf187f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NvCodec\NvDec">
-      <UniqueIdentifier>{f391adfc-8e73-409f-8741-b6fa1d14d0d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="NvCodec\src">
       <UniqueIdentifier>{5782a277-0f82-4024-a821-a9f953d9a559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec\NvDecoder">
+      <UniqueIdentifier>{f391adfc-8e73-409f-8741-b6fa1d14d0d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +31,7 @@
       <Filter>driver</Filter>
     </ClCompile>
     <ClCompile Include="NvDec\NvCodec\NvDecoder\NvDecoder.cpp">
-      <Filter>NvCodec\NvDec</Filter>
+      <Filter>NvCodec\NvDecoder</Filter>
     </ClCompile>
     <ClCompile Include="NvDec\src\Conversion.cpp">
       <Filter>NvCodec\src</Filter>
@@ -51,13 +51,13 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="NvDec\NvCodec\NvDecoder\cuviddec.h">
-      <Filter>NvCodec\NvDec</Filter>
+      <Filter>NvCodec\NvDecoder</Filter>
     </ClInclude>
     <ClInclude Include="NvDec\NvCodec\NvDecoder\nvcuvid.h">
-      <Filter>NvCodec\NvDec</Filter>
+      <Filter>NvCodec\NvDecoder</Filter>
     </ClInclude>
     <ClInclude Include="NvDec\NvCodec\NvDecoder\NvDecoder.h">
-      <Filter>NvCodec\NvDec</Filter>
+      <Filter>NvCodec\NvDecoder</Filter>
     </ClInclude>
     <ClInclude Include="NvDec\src\Conversion.h">
       <Filter>NvCodec\src</Filter>

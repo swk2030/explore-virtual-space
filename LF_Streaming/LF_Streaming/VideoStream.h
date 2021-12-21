@@ -6,11 +6,14 @@
 #include "AppDecUtils.h"
 #include "Utils/FFmpegDemuxer.h"
 #include "Conversion.h"
+#include "NvDecoder/nvcuvid.h"
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavformat/avio.h>
 #include <libavcodec/avcodec.h>
 }
+//simplelogger::Logger* logger = simplelogger::LoggerFactory::CreateConsoleLogger();
+
 
 Fmt_Convertor* convertor;
 struct buffer_in_data {
@@ -85,6 +88,8 @@ void file_map(const char *szInFilePath, uint8_t** bufptr, size_t* size) {
     fp.close();
 }
 
+
+/*
 //@Test function
 void readMp4(CUcontext& cuContext, std::string filename, uint8_t* LF, size_t chunk_size, size_t num_chunk) {
     convertor = new Fmt_Convertor(1024, 4096, 50);
@@ -143,3 +148,4 @@ void readMp4(CUcontext& cuContext, std::string filename, uint8_t* LF, size_t chu
     } while (nVideoBytes);
     av_free(buffer);
 }
+*/

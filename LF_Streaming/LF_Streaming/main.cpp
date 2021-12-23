@@ -22,8 +22,8 @@
 #elif RESOLUTION == 4
 #define WIDTH 4096
 #define HEIGHT 2048
-#define PATH_LF "C:/LFDATA/BMW_4K/"
-#define PATH_PIXEL_RANGE "C:/LFDATA/PixelRange_4K/"
+#define PATH_LF "S:/BMW_4K/"
+#define PATH_PIXEL_RANGE "S:/PixelRange_4K/"
 #elif RESOLUTION == 8
 #define WIDTH 7680
 #define HEIGHT 4320
@@ -52,13 +52,13 @@ int count = 0;
 
 int stride = 1;
 
-int curPosX = 25;
-int curPosY = 25;
+int curPosX = 250;
+int curPosY = 250;
 int LF_length = 50;
 int num_LFs = 734;
 double dpp = 0.04;
 
-LF_Renderer renderer(PATH_LF, PATH_PIXEL_RANGE, WIDTH, HEIGHT, LF_length, num_LFs, dpp, stride, curPosX, curPosY, false);
+LF_Renderer renderer(PATH_LF, PATH_PIXEL_RANGE, WIDTH, HEIGHT, LF_length, num_LFs, dpp, stride, curPosX, curPosY, true);
 
 void initDisplay(int width, int height, int channels);
 void display();

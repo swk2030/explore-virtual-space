@@ -104,12 +104,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\NvDec\NvCodec;.\NvDec\src;C:\Users\SYD-LAPTOP\Documents\GitHub\Explore-Virtual-Space\explore-virtual-space\LF_Streaming\LF_Streaming;.\NvDec\External\FFmpeg\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\include;C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common;C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples\NvCodec;C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples\AppDecode\Common;C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples\External\FFmpeg\include;C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\NvDec\NvCodec;.\NvDec\src;C:\Users\SYD-LAPTOP\Documents\GitHub\Explore-Virtual-Space\explore-virtual-space\LF_Streaming\LF_Streaming;.\NvDec\External\FFmpeg\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\include;C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>.\NvDec\External\FFmpeg\lib\$(Platform)\;.\NvDec\NvCodec\Lib\$(Platform)\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\lib\$(Platform);C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common\lib\x64;C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples\External\FFmpeg\lib\$(Platform);C:\Users\SYD-LAPTOP\Documents\GitHub\video-sdk-samples\Samples\NvCodec\Lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\NvDec\External\FFmpeg\lib\$(Platform)\;.\NvDec\NvCodec\Lib\$(Platform)\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\$(CudaToolkitVersion)\lib\$(Platform);C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\Common\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Ws2_32.lib;cudart_static.lib;cudadevrt.lib;cudart.lib;cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;nppc.lib;nppicc.lib;nppig.lib;avformat.lib;avutil.lib;avcodec.lib;nvcuvid.lib;freeglut.lib;glew64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CudaCompile>
@@ -195,9 +195,6 @@
     <ClInclude Include="NvDec\src\Conversion.h" />
     <ClInclude Include="NvDec\src\Device.h" />
     <ClInclude Include="NvDec\src\NvDec.h" />
-    <ClInclude Include="VideoStream.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="Device_Memory_Manager.cu" />

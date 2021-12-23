@@ -3,30 +3,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LocalDebuggerEnvironment>path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Release;%PATH%
 path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Debug;%PATH%
-path=C:\Users\SYD-LAPTOP\Documents\Github\video-sdk-samples\Samples\External\FFmpeg\lib\x64;%PATH%
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerEnvironment>path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Release;%PATH%
 path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Debug;%PATH%
-path=C:\Users\SYD-LAPTOP\Documents\Github\video-sdk-samples\Samples\External\FFmpeg\lib\x64;%PATH%
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerEnvironment>path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Release;%PATH%
 path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Debug;%PATH%
-path=C:\Users\SYD-LAPTOP\Documents\Github\video-sdk-samples\Samples\External\FFmpeg\lib\x64;%PATH%
-path=C:\Users\SYD-LAPTOP\Documents\GitHub\Explore-Virtual-Space\explore-virtual-space\bin;%PATH%
-path=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin;%PATH%
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerEnvironment>path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Release;%PATH%
 path=C:\Users\SYD-LAPTOP\Documents\GitHub\Backup\cuda-samples\bin\win64\Debug;%PATH%
-path=C:\Users\SYD-LAPTOP\Documents\Github\video-sdk-samples\Samples\External\FFmpeg\lib\x64;%PATH%
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>

@@ -180,11 +180,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NvDec\NvCodec\NvDecoder\NvDecoder.cpp" />
     <ClCompile Include="NvDec\src\Conversion.cpp" />
-    <ClCompile Include="NvDec\src\Nvdec.cpp" />
+    <ClCompile Include="NvDec\src\Nvdec.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device_Memory_Manager.cuh" />
     <ClInclude Include="enums.h" />
+    <ClInclude Include="InputStream.h" />
     <ClInclude Include="LFU_Window.h" />
     <ClInclude Include="LF_Renderer.cuh" />
     <ClInclude Include="LF_Utils.cuh" />
@@ -194,7 +197,9 @@
     <ClInclude Include="NvDec\NvCodec\NvDecoder\NvDecoder.h" />
     <ClInclude Include="NvDec\src\Conversion.h" />
     <ClInclude Include="NvDec\src\Device.h" />
-    <ClInclude Include="NvDec\src\NvDec.h" />
+    <ClInclude Include="NvDec\src\NvDec.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="Device_Memory_Manager.cu" />

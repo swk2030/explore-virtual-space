@@ -9,7 +9,12 @@ LFU_Window::LFU_Window(LF_Config* config, const int& posX, const int& posY, DISK
 	this->LF_prefix = _config->path_LightField;
 	curLFUID = getLFUID(posX, posY);
 	this->state_disk_read_thread = disk_read_thread_state;
-	
+
+	//새로 추가한 부분
+	//convertor = new Fmt_Convertor(1024, 256, 50);
+	//device = new Device(0);
+    stream = new InputStream(0);
+
 	if (use_window)
 	{
 		priority_LFU_read.resize(8);
@@ -136,6 +141,8 @@ LFU_Window::~LFU_Window()
 		free_uint8(m_col[7].odd_field, "pinned");
 		free_uint8(m_col[7].even_field, "pinned");
 	}
+
+    delete stream;
 }
 
 void LFU_Window::construct_window(const size_t& light_field_size)
@@ -610,35 +617,39 @@ int LFU_Window::read_LF(Interlaced_LF* LF, std::string filename, const INTERLACE
 
     filename = LF_prefix + filename;
     if (field == ODD) {
-        filename += "_odd.bgr";
+        filename += "_odd.mp4";
         buf = LF->odd_field;
         progress = &LF->read_progress_odd;
     }
     else {
-        filename += "_even.bgr";
+        filename += "_even.mp4";
         buf = LF->even_field;
         progress = &LF->read_progress_even;
     }
 
-    FILE* fp = fopen(filename.c_str(), "rb");
-    if (fp == nullptr) {
-        printf("open failed, %s\n", filename.c_str());
-        exit(1);
-    }
+    //FILE* fp = fopen(filename.c_str(), "rb");
+    //if (fp == nullptr) {
+    //    printf("open failed, %s\n", filename.c_str());
+    //    exit(1);
+    //}
+
+	// 여기에서 Raw 데이터를 읽어서 decoding 된 것을 cache에 넘겨주는걸 해야한다.
+	// 그럴려면 format convertor도 필요함.
 
     const size_t num_chunk = 50;
     const size_t chunk_size = this->interlaced_LF_size / num_chunk;
-    size_t next_chunk_begin = *progress;
-    for (int i = 0; i < num_chunk; i++) {
-        if (curLFUID != getLFUID(curPosX, curPosY)) {
-            *state_disk_read_thread = DISK_READ_THREAD_CENTER_LFU_READING;
-            printf("LF read break\n");
-            return -1; // Interrupt
-        }
-        *progress += fread(buf + next_chunk_begin, 1, sizeof(uint8_t) * chunk_size, fp);
-        next_chunk_begin += chunk_size;
-    }
-    fclose(fp);
+    stream->decode_LF(filename, buf, num_chunk, chunk_size, progress);
+    //size_t next_chunk_begin = *progress;
+    //for (int i = 0; i < num_chunk; i++) {
+    //    if (curLFUID != getLFUID(curPosX, curPosY)) {
+    //        *state_disk_read_thread = DISK_READ_THREAD_CENTER_LFU_READING;
+    //        printf("LF read break\n");
+    //        return -1; // Interrupt
+    //    }
+    //    *progress += fread(buf + next_chunk_begin, 1, sizeof(uint8_t) * chunk_size, fp);
+    //    next_chunk_begin += chunk_size;
+    //}
+    //fclose(fp);
 
     return 0;
 }

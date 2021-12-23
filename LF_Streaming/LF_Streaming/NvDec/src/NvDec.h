@@ -31,8 +31,8 @@ public:
     uint8_t* Decode_(unsigned char* iBuffer, int size, bool bOutPlanar);
     void Decode_Directly(unsigned char* iBuffer, int size, bool bOutPlanar);
     void Decode(unsigned char* iBuffer, unsigned char** oBuffer, int size, bool bOutPlanar);
-    void clearVector() { decoder->init_dPtr(); }
-    void pushBackVector(uint8_t* ptr) { decoder->push_dPtr(ptr); }
+    //void clearVector() { decoder->init_dPtr(); }
+    //void pushBackVector(uint8_t* ptr) { decoder->push_dPtr(ptr); }
     void writeData(const char path[], unsigned char** data);
     void ConvertToPlanar(uint8_t* pHostFrame, uint8_t* pRGBHostFrame);
 };

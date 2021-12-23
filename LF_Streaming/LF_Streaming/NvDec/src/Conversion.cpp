@@ -20,11 +20,11 @@ Fmt_Convertor::~Fmt_Convertor() {
 	cudaFree(rgb);
 }
 void Fmt_Convertor::Frame_NV12ToRGB(Npp8u* nv12_data, Npp8u* rgb_data) {
-	cudaMemcpyAsync(yuv, nv12_data, size.width * size.height * 1.5, cudaMemcpyHostToDevice);
+	cudaMemcpy(yuv, nv12_data, size.width * size.height * 1.5, cudaMemcpyHostToDevice);
 	const Npp8u* pSrc[2] = { yuv, yuv + size.width * size.height };
 	NppStatus stat = nppiNV12ToRGB_8u_P2C3R(pSrc, size.width, rgb, size.width * 3 * sizeof(Npp8u), oSizeROI);
 	if (stat != NPP_SUCCESS) { std::cout << "Output NPP error" << std::endl; return; }
-	cudaMemcpyAsync(rgb_data, rgb, size.width * size.height * 3, cudaMemcpyDeviceToHost);
+	cudaMemcpy(rgb_data, rgb, size.width * size.height * 3, cudaMemcpyDeviceToHost);
 }
 
 

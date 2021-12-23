@@ -71,6 +71,9 @@
     <ClInclude Include="Device_Memory_Manager.cuh" />
     <ClInclude Include="LF_Renderer.cuh" />
     <ClInclude Include="LF_Utils.cuh" />
+    <ClInclude Include="InputStream.h">
+      <Filter>header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="Device_Memory_Manager.cu" />

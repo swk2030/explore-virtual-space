@@ -2,6 +2,7 @@
 #define LFU_WINDOW_H_
 
 #include "LF_Utils.cuh"
+#include "InputStream.h"
 #include <map>
 
 #define LFU_WIDTH 100
@@ -39,6 +40,9 @@ private:
     int read_LFs_with_priority(LFU_NEIGHBOR nbrIdx, const int& curPosX, const int& curPosY, const MAIN_THREAD_STATE& main_thread_state);
     bool isLFReadCompleted(Interlaced_LF* LF, const INTERLACE_FIELD& field);
 
+
+    //bitstreamø° ¥Î«— stream ∞¥√º
+    InputStream* stream;
 
     int curLFUID;
     Interlaced_LF m_row[12];

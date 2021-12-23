@@ -10,8 +10,7 @@
 */
 
 #pragma once
-#include "cuda_runtime.h"
-#include <nppi.h>
+
 #include <assert.h>
 #include <stdint.h>
 #include <mutex>
@@ -22,8 +21,6 @@
 #include <string.h>
 #include "nvcuvid.h"
 
-
-#define TEST_ACCESSDEVICE 0
 /**
 * @brief Exception class for error reporting from the decode API.
 */
@@ -100,13 +97,6 @@ public:
     */
     CUcontext GetContext() { return m_cuContext; }
 
-
-    /**
-    *  @brief Those function is used to directly copy DtoD
-    */
-    void init_dPtr() { if (m_cacheFrame.size() > 0) m_cacheFrame.clear(); }
-    void push_dPtr(uint8_t* ptr) { m_cacheFrame.push_back(ptr); }
-
     /**
     *  @brief  This function is used to get the current decode width.
     */
@@ -149,12 +139,6 @@ public:
     bool Decode(const uint8_t *pData, int nSize, uint8_t ***pppFrame, int *pnFrameReturned, uint32_t flags = 0, int64_t **ppTimestamp = NULL, int64_t timestamp = 0, CUstream stream = 0);
 
     /**
-    *   @brief  This function decodes a frame and returns frames that are available for display.
-        The frames should be used or buffered before making subsequent calls to the Decode function again
-    */
-    bool Decode_Directly(const uint8_t* pData, int nSize, uint8_t*** pppFrame, int* pnFrameReturned, uint32_t flags = 0, int64_t** ppTimestamp = NULL, int64_t timestamp = 0, CUstream stream = 0);
-
-    /**
     *   @brief  This function decodes a frame and returns the locked frame buffers
     *   This makes the buffers available for use by the application without the buffers
     *   getting overwritten, even if subsequent decode calls are made. The frame buffers
@@ -186,14 +170,13 @@ private:
     /**
     *   @brief  Callback function to be registered for getting a callback when a decoded frame is available for display
     */
-    static int CUDAAPI HandlePictureDisplayProc(void *pUserData, CUVIDPARSERDISPINFO *pDispInfo) { return ((NvDecoder *)pUserData)->dHandlePictureDisplay(pDispInfo); }
+    static int CUDAAPI HandlePictureDisplayProc(void *pUserData, CUVIDPARSERDISPINFO *pDispInfo) { return ((NvDecoder *)pUserData)->HandlePictureDisplay(pDispInfo); }
 
     /**
     *   @brief  This function gets called when a sequence is ready to be decoded. The function also gets called
         when there is format change
     */
     int HandleVideoSequence(CUVIDEOFORMAT *pVideoFormat);
-    int dHandleVideoSequence(CUVIDEOFORMAT *pVideoFormat);
 
     /**
     *   @brief  This function gets called when a picture is ready to be decoded. cuvidDecodePicture is called from this function
@@ -206,12 +189,6 @@ private:
         internal buffer
     */
     int HandlePictureDisplay(CUVIDPARSERDISPINFO *pDispInfo);
-
-    /**
-    *   @brief This function gets called after a picture is decoded and available for display. Frames are directly fetched and stored
-        device buffer
-    */
-    int dHandlePictureDisplay(CUVIDPARSERDISPINFO *pDispInfo);
 
     /**
     *   @brief  This function reconfigure decoder if there is a change in sequence params.
@@ -235,9 +212,6 @@ private:
     int m_nBitDepthMinus8 = 0;
     CUVIDEOFORMAT m_videoFormat = {};
     Rect m_displayRect = {};
-
-    // device cache memory pointers
-    std::vector<uint8_t*> m_cacheFrame;
     // stock of frames
     std::vector<uint8_t *> m_vpFrame;
     // decoded frames for return

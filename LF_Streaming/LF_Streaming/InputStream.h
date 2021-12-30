@@ -136,13 +136,13 @@ private:
     Streamer *streamer;
     Client *client;
 
-    void decode(Packet &packet);
+    
     void convert(uint8_t* in, uint8_t* out) {convertor->Frame_NV12ToRGB(in, out);}
 public:
     NetworkStream(std::string IP, std::string PORT);
     ~NetworkStream();
-
-    void recvData(Packet &packet);
+    void decode(Packet &packet);
+    void recvData();
     void requestData(request &req);
 };
 

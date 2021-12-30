@@ -2,6 +2,7 @@
 
 NetworkStream::NetworkStream(std::string IP, std::string PORT) {
     client = new Client(IP, PORT);
+    client->establish_network();
     streamer = new Streamer(client->getServerSock(), client->getServerAddr());
     convertor = new Fmt_Convertor(1024, 4096, 1);
     if (!convertor) {
@@ -24,7 +25,7 @@ NetworkStream::~NetworkStream() {
     delete device;
 }
 
-void NetworkStream::recvData(Packet& packet) {
+void NetworkStream::recvData() {
     size_t szBitStream = streamer->recvData();
     uint8_t* bitstream = streamer->getBuffer();
     bd.ptr = bitstream;
@@ -34,8 +35,7 @@ void NetworkStream::recvData(Packet& packet) {
 }
 void NetworkStream::decode(Packet& packet) {
     AVIOContext *avio_ctx = NULL;
-    bd = { 0,0 };
-
+   
     uint8_t* avio_ctx_buffer = NULL;
     size_t avio_ctx_buffer_size = 4096;
 

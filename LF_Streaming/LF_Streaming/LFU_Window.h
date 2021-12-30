@@ -42,7 +42,7 @@ private:
 
 
     //bitstreamø° ¥Î«— stream ∞¥√º
-    InputStream* stream;
+    NetworkStream *stream;
 
     int curLFUID;
     Interlaced_LF m_row[12];

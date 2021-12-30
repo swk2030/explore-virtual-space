@@ -13,7 +13,7 @@ LFU_Window::LFU_Window(LF_Config* config, const int& posX, const int& posY, DISK
 	//새로 추가한 부분
 	//convertor = new Fmt_Convertor(1024, 256, 50);
 	//device = new Device(0);
-    stream = new InputStream(0);
+    stream = new NetworkStream("165.246.39.22", "11000");
 
 	if (use_window)
 	{
@@ -638,7 +638,11 @@ int LFU_Window::read_LF(Interlaced_LF* LF, std::string filename, const INTERLACE
 
     const size_t num_chunk = 50;
     const size_t chunk_size = this->interlaced_LF_size / num_chunk;
-    stream->decode_LF(filename, buf, num_chunk, chunk_size, progress);
+    Packet packet = { buf, chunk_size, progress };
+    stream->requestData(filename);
+    stream->recvData();
+    stream->decode(packet);
+    //stream->decode_LF(filename, buf, num_chunk, chunk_size, progress);
     //size_t next_chunk_begin = *progress;
     //for (int i = 0; i < num_chunk; i++) {
     //    if (curLFUID != getLFUID(curPosX, curPosY)) {

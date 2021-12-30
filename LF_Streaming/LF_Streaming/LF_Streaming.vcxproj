@@ -175,16 +175,21 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="InputStream.cpp" />
     <ClCompile Include="LFU_Window.cpp" />
     <ClCompile Include="LRU_Cache.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Network.cpp" />
     <ClCompile Include="NvDec\NvCodec\NvDecoder\NvDecoder.cpp" />
     <ClCompile Include="NvDec\src\Conversion.cpp" />
     <ClCompile Include="NvDec\src\Nvdec.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Streamer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Device_Memory_Manager.cuh" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="InputStream.h" />
@@ -192,6 +197,7 @@
     <ClInclude Include="LF_Renderer.cuh" />
     <ClInclude Include="LF_Utils.cuh" />
     <ClInclude Include="LRU_Cache.h" />
+    <ClInclude Include="Network.h" />
     <ClInclude Include="NvDec\NvCodec\NvDecoder\cuviddec.h" />
     <ClInclude Include="NvDec\NvCodec\NvDecoder\nvcuvid.h" />
     <ClInclude Include="NvDec\NvCodec\NvDecoder\NvDecoder.h" />
@@ -200,6 +206,7 @@
     <ClInclude Include="NvDec\src\NvDec.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Streamer.h" />
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="Device_Memory_Manager.cu" />

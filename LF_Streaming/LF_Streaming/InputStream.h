@@ -2,6 +2,10 @@
 #include <iostream>
 #include <Device.h>
 #include <Conversion.h>
+#include <Client.h>
+#include <Network.h>
+#include <Streamer.h>
+
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavformat/avio.h>
@@ -117,6 +121,31 @@ public:
 
 
 };
+typedef struct Packet {
+    uint8_t* buf;
+    size_t chunk_size;
+    size_t* progress;
+};
+typedef std::string request;
+
+class NetworkStream {
+private:
+    buffer_in_data bd;
+    Fmt_Convertor *convertor;
+    Device *device;
+    Streamer *streamer;
+    Client *client;
+
+    void decode(Packet &packet);
+    void convert(uint8_t* in, uint8_t* out) {convertor->Frame_NV12ToRGB(in, out);}
+public:
+    NetworkStream(std::string IP, std::string PORT);
+    ~NetworkStream();
+
+    void recvData(Packet &packet);
+    void requestData(request &req);
+};
+
 
 
 static int read_packet(void* opaque, uint8_t* buf, int buf_size) {

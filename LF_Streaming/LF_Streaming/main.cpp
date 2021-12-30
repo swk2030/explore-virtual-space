@@ -263,8 +263,9 @@ void _runCUDA(uint8_t* _CUDA_pixelArray)
 	cudaGLUnmapBufferObject(_GL_pbo);
 }
 
+//매 frame마다 호출되는 함수
 void _display()
-{
+{    
 	_runCUDA(renderer.do_rendering(curPosX, curPosY));
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);

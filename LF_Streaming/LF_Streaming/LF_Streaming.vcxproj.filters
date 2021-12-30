@@ -19,6 +19,9 @@
     <Filter Include="NvCodec\NvDecoder">
       <UniqueIdentifier>{f391adfc-8e73-409f-8741-b6fa1d14d0d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Streamer">
+      <UniqueIdentifier>{956aa7a5-6bf9-4461-8c6a-a72c95075f62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LFU_Window.cpp">
@@ -38,6 +41,18 @@
     </ClCompile>
     <ClCompile Include="NvDec\src\Nvdec.cpp">
       <Filter>NvCodec\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Streamer.cpp">
+      <Filter>Streamer</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Streamer</Filter>
+    </ClCompile>
+    <ClCompile Include="Network.cpp">
+      <Filter>Streamer</Filter>
+    </ClCompile>
+    <ClCompile Include="InputStream.cpp">
+      <Filter>Streamer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +88,15 @@
     <ClInclude Include="LF_Utils.cuh" />
     <ClInclude Include="InputStream.h">
       <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="Network.h">
+      <Filter>Streamer</Filter>
+    </ClInclude>
+    <ClInclude Include="Streamer.h">
+      <Filter>Streamer</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Streamer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
